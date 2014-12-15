@@ -22,11 +22,11 @@
                 <label for="age">Age:</label>
                 <input type="text" name="age" data-bind-user="age" />
                 
-                <input type="button" value="send" onclick="show()">
+                <input type="button" value="send" onclick="show()"> * this button prints the JSON value of the Person to console
             </form>
             
         </div>
-        <br/><br/>
+        <br/><br/>The following div shows the two way data binding:
         <div id="serialised" style="background-color: #dedede; width: 30%; padding:10px">
             <p data-bind-user="name"></p>
             <p data-bind-user="surname"></p>

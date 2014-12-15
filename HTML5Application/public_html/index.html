@@ -5,8 +5,7 @@
         <title>Sample Title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- data-main attribute tells require.js to load
-             scripts/main.js after require.js loads. -->
+        
         <script data-main="config" src="lib/require.js"></script>
         
     </head>
@@ -17,9 +16,22 @@
                 <label for="name">Name:</label>
                 <input type="text" name="name" data-bind-user="name" />
                 
+                <label for="surname">Surname:</label>
+                <input type="text" name="surname" data-bind-user="surname" />
+                
                 <label for="age">Age:</label>
                 <input type="text" name="age" data-bind-user="age" />
+                
+                <input type="submit" value="submit" >
             </form>
+            
+        </div>
+        <br/><br/>
+        <div id="serialised" style="background-color: #dedede; width: 30%; padding:10px">
+            <p data-bind-user="name"></p>
+            <p data-bind-user="surname"></p>
+            <p data-bind-user="age"></p>
+            
         </div>
         
     </body>

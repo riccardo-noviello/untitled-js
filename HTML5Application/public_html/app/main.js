@@ -1,4 +1,4 @@
-require(['app/messages', 'app/persons', 'utils', 'app/bindable'], function(messages, Person, utils, Bindable) {
+require(['app/messages', 'app/persons', 'utils', 'bindable'], function(messages, Person, utils, Bindable) {
 
     //println(messages.getHello());
 
@@ -7,8 +7,9 @@ require(['app/messages', 'app/persons', 'utils', 'app/bindable'], function(messa
 
     
     // simulation of a Service
-    obj = parseJSON('{"name":"Ric", "age":"28"}');
+    json = parseJSON('{"name":"Ric", "age":"28", "surname" : "Noviello"}');
     
-    var b = new Bindable("user", obj);
-    console.log(b);
+    var b = new Bindable("user", json);
+
+    
 });

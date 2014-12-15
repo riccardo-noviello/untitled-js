@@ -1,7 +1,7 @@
 define(['binding'], function(DataBinder) {
 
     // Bindable object definition
-    return function Bindable(uid, obj) {
+    return function Bindable(uid, data) {
         var binder = new DataBinder(uid),
                 bindable = {
                     attributes: {},
@@ -13,7 +13,7 @@ define(['binding'], function(DataBinder) {
                     get: function(attr_name) {
                         return this.attributes[ attr_name ];
                     },
-                    toJson: function(){
+                    toJson: function() {
                         // serialise to JSON
                         return JSON.stringify(this.attributes);
                     },
@@ -21,6 +21,7 @@ define(['binding'], function(DataBinder) {
                 };
 
         // make object bindable by cloning its properties
+        var obj = parseJSON(data);
         if (null == obj || "object" != typeof obj)
             return obj;
         var copy = obj.constructor();

@@ -1,20 +1,30 @@
-require(['app/messages', 'app/persons', 'utils', 'bindable'], function(messages, Person, utils, Bindable) {
+require(['app/messages', 'app/person-service', 'utils', 'bindable'], function(messages, PersonService, utils, Bindable) {
 
-    //println(messages.getHello());
-
-    var bob = new Person("bob", 43);
-    println(bob.toString());
-
-    
-    // simulation of a Service
-    json = parseJSON('{"name":"Ric", "age":"28", "surname" : "Noviello"}');    
-    var b = new Bindable("user", json);
+    // private variable
+    var myperson = {};
 
     /**
-     * 
+     * Initialise the page by retrieving some data for our Form
      * @returns {undefined}
      */
-    show = function(){
-        println(b.toJson());
+    init = function() {
+        // Simulation of a Service call
+        personService = new PersonService();
+
+        // Map data from service to local Object
+        data = personService.getPersons();
+        myperson = new Bindable("user", data);
     };
+
+    /**
+     * Shows the values of the Person
+     * @returns {undefined}
+     */
+    show = function() {
+        // myperson object now holds the values of the person
+        println(myperson.toJson());
+    };
+    
+    init();
+    
 });

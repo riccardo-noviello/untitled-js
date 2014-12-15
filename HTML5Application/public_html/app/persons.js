@@ -1,6 +1,6 @@
-define(['class'], function(d1) {
+define(['class' ], function(d1) {
 
-    return Person = Class.extend({
+    return Bindable = Class.extend({
         init: function(name, age) {
             this.name = name;
             this.age = age;

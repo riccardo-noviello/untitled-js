@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Sample Title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- data-main attribute tells require.js to load
@@ -11,6 +11,16 @@
         
     </head>
     <body>
-        <div id="content">TODO write content</div>
+        <div id="content">
+            
+            <form id="personform">
+                <label for="name">Name:</label>
+                <input type="text" name="name" data-bind-user="name" />
+                
+                <label for="age">Age:</label>
+                <input type="text" name="age" data-bind-user="age" />
+            </form>
+        </div>
+        
     </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Application Testing Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <script data-main="test/test-config" src="lib/require.js"></script>
+        <style>
+            html{
+                width: 90%;
+                margin: auto;
+                font-family: Arial;
+            }
+            ul{
+                list-style: none;      
+                padding: 0px;
+                font-family: monospace;
+            }
+            li{
+                margin-bottom: 3px;
+            }
+            li.test-passed{
+                color: #026a11;
+                background-color: #ddffe2;
+                padding: 5px;
+            }
+            li.test-failed{
+                color: #d90106;
+                background-color: #fed0cd;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Test Results</h3>
+        <ul id="testresults">
+        </ul>
+    </body>
+</html>

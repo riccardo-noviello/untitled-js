@@ -1,0 +1,31 @@
+// Object
+var Person = function (name, age) {
+    this.name = name; 
+    this.age = age;
+};
+
+// Object methods
+Person.prototype.print = function (words) {
+    console.log("Name: '" + this.name + "' Age: " + this.age);
+};
+Person.prototype.addAge = function (number) {
+    this.age = this.age + number;
+};
+
+// Extending Object
+Object.prototype.properties = function() {
+  var result = [];
+  for (var property in this) {
+    if (this.hasOwnProperty(property))
+      result.push(property);
+  }
+  return result;
+};
+
+// main application code
+var tom = new Person("tom", 25);
+tom.print("Hello");
+tom.addAge(3);
+tom.print("Hello");
+console.log(tom.properties().toString());
+

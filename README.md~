@@ -4,6 +4,7 @@
 <li>Web Routing</li>
 <li>Templating</li>
 <li>Rest Calls</li>
+<li>Two way data binding (done)</li>
 <li>Basic unit testing</li>
 <li>...</li>
 </ul>

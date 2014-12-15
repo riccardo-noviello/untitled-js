@@ -4,7 +4,7 @@
 <li>Web Routing</li>
 <li>Templating</li>
 <li>Rest Calls</li>
-<li>One way data binding</li>
+<li>Two way data binding</li>
 <li>Basic unit testing</li>
 <li>...</li>
 </ul>

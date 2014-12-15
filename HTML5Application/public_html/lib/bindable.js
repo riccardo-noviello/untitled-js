@@ -13,6 +13,10 @@ define(['binding'], function(DataBinder) {
                     get: function(attr_name) {
                         return this.attributes[ attr_name ];
                     },
+                    toJson: function(){
+                        // serialise to JSON
+                        return JSON.stringify(this.attributes);
+                    },
                     _binder: binder
                 };
 

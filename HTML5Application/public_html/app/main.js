@@ -7,9 +7,14 @@ require(['app/messages', 'app/persons', 'utils', 'bindable'], function(messages,
 
     
     // simulation of a Service
-    json = parseJSON('{"name":"Ric", "age":"28", "surname" : "Noviello"}');
-    
+    json = parseJSON('{"name":"Ric", "age":"28", "surname" : "Noviello"}');    
     var b = new Bindable("user", json);
 
-    
+    /**
+     * 
+     * @returns {undefined}
+     */
+    show = function(){
+        println(b.toJson());
+    };
 });

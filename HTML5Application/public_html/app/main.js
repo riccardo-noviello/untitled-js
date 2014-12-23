@@ -1,7 +1,7 @@
 require(['app/messages', 'app/person-service', 'utils', 'bindable'], function(messages, PersonService, utils, Bindable) {
 
-    // private variable
-    var myperson = {};
+    // private variable myperson
+    var myperson = null;
 
     /**
      * Initialise the page by retrieving some data for our Form
@@ -14,6 +14,10 @@ require(['app/messages', 'app/person-service', 'utils', 'bindable'], function(me
         // Map data from service to local Object
         data = personService.getPersons();
         myperson = new Bindable("user", data);
+        
+        // test service 
+        var t = personService.getEstimate();
+        println("estimate: " +t);
     };
 
     /**

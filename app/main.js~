@@ -11,13 +11,20 @@ require(['app/messages', 'app/person-service', 'utils', 'bindable'], function(me
         // Simulation of a Service call
         personService = new PersonService();
 
-        // Map data from service to local Object
-        data = personService.getPersons();
-        myperson = new Bindable("user", data);
+        // Map data from service to input form
+        personService.getPersonById("46387558", 
+	function(data){
+		console.log("service call 1 returned: " +data);
+		myperson = new Bindable("user", data);
+	});
+	
         
-        // test service 
-        var t = personService.getEstimate();
-        println("estimate: " +t);
+        // Map data from service to dropdown list
+        personService.getPersons( 	
+	function(data){
+		console.log("service call 2: " +data);
+	});
+
     };
 
     /**

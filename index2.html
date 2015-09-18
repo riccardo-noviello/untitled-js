@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sample Title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    </head>
+    <body>
+	<div>
+            <p class="greeting-id">The ID is </p>
+            <p class="greeting-content">The content is </p>
+        </div>
+    </body>
+
+            
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "http://localhost:8080/angular-springmvc-template/api/v1/persons/46387558"
+    }).then(function(data) {
+console.log(data);
+       $('.greeting-id').append(data.id);
+       $('.greeting-content').append(data.content);
+    });
+});
+
+</script> 
+
+</html>

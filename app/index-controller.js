@@ -1,18 +1,22 @@
 /**
- * Index Controller. We need to import the modules person-service, utils and bindable
+ * Index Controller. We need to import the modules person-service and untitled-js
  *
  */
-require(['app/person-service', 'utils', 'bindable'], function(PersonService, Utils, Bindable) {
+require(['app/person-service', 'untitled'], function(PersonService, U) {
 
     // private variable myperson
     var myperson = null;
     var list = [];
+	
 
     /**
      * Initialise the page by retrieving some data for our Form
      * @returns {undefined}
      */
     init = function() {
+
+	U.test();
+
         // Simulation of a Service call
         personService = new PersonService();
 
@@ -20,7 +24,7 @@ require(['app/person-service', 'utils', 'bindable'], function(PersonService, Uti
         personService.getPersonById("46387558", 
 	function(data){
 		console.log("service call 1: " +data);
-		myperson = new Bindable("user", data);
+		myperson = U.bind("user", data);
 	});
 	
         
@@ -28,27 +32,38 @@ require(['app/person-service', 'utils', 'bindable'], function(PersonService, Uti
         personService.getPersons( 	
 	function(data){
 		console.log("service call 2: " +data);
-		list = new Bindable("users", data);
+		data.forEach(function(element, index){
+			
+			// create and "option" element child of the select
+			var option = document.createElement("option");
+		   	option.text = element.name;
+                   	option.value = element.age;
+			var data_attr="data-bind-users";
+			var prop_name="name";
+			var tag_name="select";
+			var elements = document.querySelectorAll("[" + data_attr + "=" + prop_name + "]"), tag_name;
+			elements[0].add(option);
+			// bind each option 
+			list.push(U.bind("users"+index, element));
+		});
+
 		
 	});
 
     };
 
     /**
-     * Shows the values of the Person
+     * Shows the values of the Persons list
      */
-    show = function() {
-        // myperson object now holds the values of the person
-        alert(myperson.toJson());
+    showList = function() {
+	console.log(list);
     };
 
     /**
      * Add a Person to the list of Persons
      */        
     addPerson = function() {
-	//list.push(myperson);
-	
-	console.log(list.toJson());
+	//list.push(myperson);	
     };
 
     /**

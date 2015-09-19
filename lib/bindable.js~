@@ -1,7 +1,7 @@
 define(['data-binder'], function(DataBinder) {
 
     // Bindable object definition
-    return function Bindable(uid, data) {
+    return function Bindable(uid, obj) {
 	var tag = "data-bind-";
         var binder = new DataBinder(uid, tag),
                 bindable = {
@@ -11,7 +11,7 @@ define(['data-binder'], function(DataBinder) {
 			this.attributes[attr_name] = val;
 	                binder.publish(uid + ":change", attr_name, val, this);
                     },
-                    get: function(attr_name) {
+		    get: function(attr_name) {
                         return this.attributes[attr_name];
                     },
                     toJson: function() {
@@ -22,17 +22,19 @@ define(['data-binder'], function(DataBinder) {
                 };
 
         // make object bindable by cloning its properties
-      	var obj = data;
-	if (null == obj || "object" != typeof obj)
+      	if (null == obj || "object" != typeof obj)
             return obj;
         var copy = obj.constructor();
 	
 	if(obj instanceof Array){
         	obj.forEach(function(item){
-			for (var attr in item) {
+			console.log("array detected");			
+			bindable.set(obj)
+			
+			/*for (var attr in item) {
 			    if (item.hasOwnProperty(attr))
 			        bindable.set(attr, item[attr]);
-			}
+			}*/
 		});
 	} else{
 		for (var attr in obj) {

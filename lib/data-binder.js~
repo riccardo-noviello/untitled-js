@@ -24,13 +24,13 @@ define(function() {
         var pubSub = {
             callbacks: {},
             on: function(msg, callback) {
-                this.callbacks[msg] = this.callbacks[msg] || [];
-                this.callbacks[msg].push(callback);
+                this.callbacks[ msg ] = this.callbacks[ msg ] || [];
+                this.callbacks[ msg ].push(callback);
             },
             publish: function(msg) {
-                this.callbacks[msg] = this.callbacks[msg] || []
-                for (var i = 0, len = this.callbacks[msg].length; i < len; i++) {
-                    this.callbacks[msg][i].apply(this, arguments);
+                this.callbacks[ msg ] = this.callbacks[ msg ] || []
+                for (var i = 0, len = this.callbacks[ msg ].length; i < len; i++) {
+                    this.callbacks[ msg ][ i ].apply(this, arguments);
                 }
             }
         },

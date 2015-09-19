@@ -7,6 +7,7 @@
         
 	<!-- Load RequireJS Config -->      
         <script data-main="config" src="lib/require.js"></script>
+        <script data-main="config" src="lib/untitled.js"></script>
 
 	<!-- Load Controller for this page -->	
 	<script>
@@ -22,30 +23,32 @@
 	<p>Data is loaded froma Rest call and loaded into the drop-down list</p>
 
 	<!-- Define a drop-down list where the display key is 'name' and the select value is "age" -->
-	<select data-bind-users="name"></select>
+	<select data-bind-users="name">
 
+	</select>
+	<input type="button" value="show list" onclick="showList()">
 	
         <p>Data is loaded froma Rest call and loaded into the form</p>
 	<table>
             <form id="user">
                 <tr>
-		<td><label for="name">Name:</label></td>
-                <td><input type="text" name="name" data-bind-user="name" /></td>
+		<td><label>Name:</label></td>
+                <td><input type="text" data-bind-user="name" /></td>
 		</tr>
                 
 		<tr>
-                <td><label for="surname">Surname:</label></td>
-                <td><input type="text" name="surname" data-bind-user="surname" /></td>
+                <td><label>Surname:</label></td>
+                <td><input type="text" data-bind-user="surname" /></td>
                 </tr>
 
 		<tr>
-                <td><label for="age">Age:</label></td>
-                <td><input type="text" name="age" data-bind-user="age" /></td>
+                <td><label>Age:</label></td>
+                <td><input type="text" data-bind-user="age" /></td>
 		</tr>
                 
                 <tr>
 		<td></td>
-		<td><input type="button" value="Add to list" onclick="addPerson('user')"></td>
+		<td><input type="button" value="Add to list" onclick="addPerson()"></td>
 		</tr>
             </form>
        </table>     

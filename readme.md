@@ -1,10 +1,10 @@
 
 <h3>What is it:</h3>
-<p>The aim of this project was to improve personal skills in JavaScript by actually writing some libraries. untitled-js is just another MVC web framework with 2 way data binding enabled from the start.</p>
+<p>The aim of this project was to improve personal skills in ES5 JavaScript by actually writing some libraries. untitled-js is just another MVC web framework with 2 way data binding enabled from the start.</p>
 
 <p>This frameworks aims to be lightweight, therefore it makes no use of 3rd party libraries (i.e. there is no JQuery support). The only 3rd party library in use is RequireJS.</p>
 
-<h3>What works:</h3>
+<h3>How it works:</h3>
 SO far I was able to create a simple webpage, and using custom html tags to be used for the data binding. For example:
 
 
@@ -30,7 +30,7 @@ Our controller has te main purpose of calling a rest API, getting data and popul
  * Index Controller. We need to import the modules person-service and untitled-js
  *
  */
-require(['app/person-service', 'untitled'], function(PersonService, U) {
+require(['app/person-service', 'untitled'], function(personService, U) {
 
     // private variable myperson
     var myperson = null;
@@ -42,11 +42,6 @@ require(['app/person-service', 'untitled'], function(PersonService, U) {
      * @returns {undefined}
      */
     init = function() {
-
-	U.test();
-
-        // Simulation of a Service call
-        personService = new PersonService();
 
         // Map data from service to input form
         personService.getPersonById("46387558", 
@@ -74,7 +69,6 @@ require(['app/person-service', 'untitled'], function(PersonService, U) {
 			// bind each option 
 			list.push(U.bind("users"+index, element));
 		});
-
 		
 	});
 
@@ -91,7 +85,7 @@ require(['app/person-service', 'untitled'], function(PersonService, U) {
      * Add a Person to the list of Persons
      */        
     addPerson = function() {
-	//list.push(myperson);	
+	  //list.push(myperson);	
     };
 
     /**
